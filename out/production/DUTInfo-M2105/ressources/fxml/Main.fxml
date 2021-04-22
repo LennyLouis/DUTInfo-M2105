@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="policeFxml.PoliceController">
+   <center>
+      <VBox fx:id="verticalBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="policeLabel" layoutX="31.25" layoutY="31.25" text="Police :" />
+                  <TextField fx:id="policeTextField" layoutX="31.25" layoutY="55.25" prefHeight="30.0" prefWidth="175.0" />
+                  <ListView fx:id="policeListView" layoutX="31.25" layoutY="90.25" prefHeight="200.0" prefWidth="175.0" />
+                  <Label fx:id="styleLabel" layoutX="237.5" layoutY="31.25" text="Style de police :" />
+                  <TextField fx:id="styleTextField" layoutX="237.5" layoutY="55.25" prefHeight="30.0" prefWidth="125.0" />
+                  <ListView fx:id="styleListView" layoutX="238.0" layoutY="90.25" prefHeight="200.0" prefWidth="125.0" />
+                  <Label fx:id="tailleLabel" layoutX="393.75" layoutY="31.25" text="Taille :" />
+                  <TextField fx:id="tailleTextField" layoutX="393.75" layoutY="55.25" prefHeight="30.0" prefWidth="75.0" />
+                  <ListView fx:id="tailleListView" layoutX="393.75" layoutY="90.25" prefHeight="200.0" prefWidth="75.0" />
+                  <Label fx:id="couleurLabel" layoutX="31.25" layoutY="300.25" text="Couleur de police :" />
+                  <ColorPicker fx:id="couleurComboBox" layoutX="31.25" layoutY="320.25" onAction="#changeColor" prefWidth="150.0">
+                     <value>
+                        <Color />
+                     </value>
+                  </ColorPicker>
+               </children>
+            </AnchorPane>
+            <FlowPane fx:id="effetFlowPane">
+               <children>
+                  <Label fx:id="effetLabel" text="Effets">
+                     <padding>
+                        <Insets bottom="10.0" left="15.625" top="15.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </FlowPane>
+            <TilePane fx:id="tilePane">
+               <children>
+                  <CheckBox fx:id="ch1" mnemonicParsing="false" prefWidth="150.0" text="Barré" />
+                  <CheckBox fx:id="ch2" mnemonicParsing="false" prefWidth="150.0" text="Barré double" />
+                  <CheckBox fx:id="ch3" mnemonicParsing="false" prefWidth="150.0" text="Exposant" />
+                  <CheckBox fx:id="ch4" mnemonicParsing="false" prefWidth="150.0" text="Indice" />
+                  <CheckBox fx:id="ch5" mnemonicParsing="false" prefWidth="150.0" text="Petites majuscules" />
+                  <CheckBox fx:id="ch6" mnemonicParsing="false" prefWidth="150.0" text="Majuscules" />
+                  <CheckBox fx:id="ch7" mnemonicParsing="false" prefWidth="150.0" text="Masqué" />
+               </children>
+               <padding>
+                  <Insets left="31.25" />
+               </padding>
+            </TilePane>
+            <FlowPane fx:id="apercuFlowPane">
+               <children>
+                  <Label fx:id="apercuLabel" text="Aperçu">
+                     <padding>
+                        <Insets bottom="10.0" left="15.625" top="15.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </FlowPane>
+            <GridPane fx:id="gridPane">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Canvas fx:id="apercuCanva" height="50.0" width="437.5" />
+                  <Label fx:id="trueTypeLabel" text="Police TrueType, identique à l'écran et à l'impression." GridPane.rowIndex="1" />
+               </children>
+               <padding>
+                  <Insets left="31.25" />
+               </padding>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox fx:id="horizontalBox" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="defautButton" minWidth="90.0" mnemonicParsing="false" text="Définir par défaut" textAlignment="CENTER" />
+            <Button fx:id="effetButton" minWidth="90.0" mnemonicParsing="false" text="Effets de texte..." textAlignment="CENTER" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="okButton" minWidth="90.0" mnemonicParsing="false" text="OK" textAlignment="CENTER" />
+            <Button fx:id="annulerButton" minWidth="90.0" mnemonicParsing="false" text="Annuler" textAlignment="CENTER" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>
